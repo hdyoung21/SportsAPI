@@ -34,23 +34,43 @@ submitBtn.addEventListener('click', (event) => {
 
 function displayGames(games) {
     let gameHtml = '';
-    games.forEach((game) => {
+    games.forEach((game, index) => {
+        if (!game.GameID) {
+            game.GameID = index;
+        }
         gameHtml += `<li class="list-group-item" id="${game.GameID}">${game.HomeTeam} vs ${game.AwayTeam}</li>`;
     });
     gameList.innerHTML = gameHtml;
     gameList.addEventListener('click', (event) => {
         if (event.target.tagName === 'LI') {
             const gameId = event.target.id;
-            const game = games.find((game) => game.GameID === gameId);
-
-            displayOdds(game);
+            const game = games.find((game) => game.GameID == gameId);
+            if (game) {
+                displayOdds(game);
+            } else {
+                console.error('No game found with ID', gameId);
+            }
         }
     });
 }
 
+
+  
 function displayOdds(game) {
+    if (!game) {
+        console.error('No game selected.');
+        return;
+    }
+    if (!game.GameOdds || game.GameOdds.length === 0) {
+        console.error('No odds available for this game.');
+        return;
+    }
+
     const odds = game.GameOdds[0];
 
     let oddsHtml = '';
 
-oddsHtml += `<tr><td>America's Bookie</td><td>${odds.MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.Bet365MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.CaesarsMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.FanDuelMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`};
+    oddsHtml += `<tr><td>America's Bookie</td><td>${odds.MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.Bet365MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.CaesarsMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.FanDuelMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`
+
+    oddsTableBody.innerHTML = oddsHtml;
+}
