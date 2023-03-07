@@ -48,8 +48,8 @@ function displayGames(games) {
         if (game.PregameOdds && game.PregameOdds.length > 0) {
             // Loop through the pregame odds and create HTML for each one
             game.PregameOdds.forEach(odds => {
-                pregameOddsHtml += [`<div>${odds.Sportsbook}: ${odds.HomePointSpread}</div>`,
-                `<div>${odds.Sportsbook}: ${odds.AwayPointSpread}</div>`]
+                pregameOddsHtml += [`<div>${odds.Sportsbook}: ${odds.HomePointSpread}</div>
+                <div>${odds.Sportsbook}: ${odds.AwayPointSpread}</div>`]
             });
         }
 

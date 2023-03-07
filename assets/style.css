@@ -2,6 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
+    background-image: url(https://wallpapercave.com/wp/4ccNKOh.jpg);
   }
   
   /* Center the header text */
@@ -27,7 +28,7 @@ body {
   
   /* Add background color and padding to game info */
   .game-info {
-    background-color: #f8f9fa;
+    background-color: #c1c7cc;
     padding: 10px;
   }
   
@@ -47,3 +48,17 @@ body {
     text-align: center;
   }
   
+
+  .game-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-names {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
