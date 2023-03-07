@@ -1,0 +1,49 @@
+/* Set default font family and size */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Center the header text */
+  header nav h1 {
+    text-align: center;
+  }
+  
+  /* Add spacing to the form */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  /* Center the submit button */
+  #submitBtn {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Add spacing between list items */
+  .list-group-item {
+    margin-bottom: 10px;
+  }
+  
+  /* Add background color and padding to game info */
+  .game-info {
+    background-color: #f8f9fa;
+    padding: 10px;
+  }
+  
+  /* Style the team names */
+  .team-names {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Style the odds table */
+  #oddsTable th {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  #oddsTable td {
+    text-align: center;
+  }
+  
