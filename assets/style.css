@@ -39,9 +39,10 @@ body {
   }
   
   /* Style the odds table */
-  #oddsTable th {
+  #oddsTable  {
     text-align: center;
     font-weight: bold;
+    background-color: #c1c7cc;
   }
   
   #oddsTable td {

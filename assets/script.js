@@ -93,7 +93,7 @@ function displayOdds(game) {
 
     let oddsHtml = '';
 
-    oddsHtml += `<tr><td>America's Bookie</td><td>${odds.MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.Bet365MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.CaesarsMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.FanDuelMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`
+    oddsHtml += `<tr><td>America's Bookie</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`
 
     oddsTableBody.innerHTML = oddsHtml;
 }
@@ -137,51 +137,51 @@ document.querySelector('form').addEventListener('submit', function(e) {
   
  // Function to select random games from the games array
 function selectRandomGames(games, numSelected) {
-    const selectedGames = [];
-    for (let i = 0; i < numSelected; i++) {
-      const randomIndex = Math.floor(Math.random() * games.length);
-      selectedGames.push(games[randomIndex]);
-      games.splice(randomIndex, 1);
-    }
-    return selectedGames;
+  const selectedGames = [];
+  for (let i = 0; i < numSelected; i++) {
+    const randomIndex = Math.floor(Math.random() * games.length);
+    selectedGames.push(games[randomIndex]);
+    games.splice(randomIndex, 1);
   }
-  
-  document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault(); // prevent form submission
-    const numSelected = parseInt(document.getElementById('numGames').value);
-    const selectedGames = selectRandomGames(games, numSelected);
-  
-    // Display selected games in the selectedGames column
-    const selectedGamesList = document.getElementById('selectedGamesList');
-    selectedGamesList.innerHTML = '';
-    selectedGames.forEach(function(game) {
-      const listItem = document.createElement('li');
-      listItem.classList.add('list-group-item');
-      listItem.textContent = `${game.awayTeam} @ ${game.homeTeam}`;
-      selectedGamesList.appendChild(listItem);
-    });
-  
-    // Display odds for the first game in the odds table
-    const oddsTableBody = document.querySelector('#oddsTable tbody');
-    oddsTableBody.innerHTML = '';
-    selectedGames[0].odds.forEach(function(odd) {
-      const row = document.createElement('tr');
-      const sportsbookCell = document.createElement('td');
-      sportsbookCell.textContent = odd.sportsbook;
-      const moneylineCell = document.createElement('td');
-      moneylineCell.textContent = odd.moneyline;
-      const pointSpreadCell = document.createElement('td');
-      pointSpreadCell.textContent = odd.pointSpread;
-      const totalCell = document.createElement('td');
-      totalCell.textContent = odd.total;
-      row.appendChild(sportsbookCell);
-      row.appendChild(moneylineCell);
-      row.appendChild(pointSpreadCell);
-      row.appendChild(totalCell);
-      oddsTableBody.appendChild(row);
-    });
+  return selectedGames;
+}
+
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault(); // prevent form submission
+  const numSelected = parseInt(document.getElementById('numGames').value);
+  const selectedGames = selectRandomGames(games, numSelected);
+
+  // Display selected games in the selectedGames column
+  const selectedGamesList = document.getElementById('selectedGamesList');
+  selectedGamesList.innerHTML = '';
+  selectedGames.forEach(function(game) {
+    const listItem = document.createElement('li');
+    listItem.classList.add('list-group-item');
+    listItem.textContent = `${game.awayTeam} @ ${game.homeTeam}`;
+    selectedGamesList.appendChild(listItem);
   });
-  
+
+  // Display odds for the first game in the odds table
+  const oddsTableBody = document.querySelector('#oddsTable tbody');
+  oddsTableBody.innerHTML = '';
+  selectedGames[0].odds.forEach(function(odd) {
+    const row = document.createElement('tr');
+    const sportsbookCell = document.createElement('td');
+    sportsbookCell.textContent = odd.sportsbook;
+    const moneylineCell = document.createElement('td');
+    moneylineCell.textContent = odd.moneyline;
+    const pointSpreadCell = document.createElement('td');
+    pointSpreadCell.textContent = odd.pointSpread;
+    const totalCell = document.createElement('td');
+    totalCell.textContent = odd.total;
+    row.appendChild(sportsbookCell);
+    row.appendChild(moneylineCell);
+    row.appendChild(pointSpreadCell);
+    row.appendChild(totalCell);
+    oddsTableBody.appendChild(row);
+  });
+});
+
 
 
 
@@ -269,7 +269,7 @@ function selectRandomGames(games, numSelected) {
     
 //         let oddsHtml = '';
     
-//         oddsHtml += `<tr><td>America's Bookie</td><td>${odds.MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.Bet365MoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.CaesarsMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.FanDuelMoneyLineAway}</td><td>${odds.PointSpreadAway} (${odds.PointSpreadAwayMoney})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`
+//         oddsHtml += `<tr><td>America's Bookie</td><td>${odds.MoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.Bet365MoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.CaesarsMoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.FanDuelMoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`
     
 //         oddsTableBody.innerHTML = oddsHtml;
 //     }
