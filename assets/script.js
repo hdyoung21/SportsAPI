@@ -120,6 +120,70 @@ function showPregameOdds(gameId) {
 }
 
 
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent form submission
+    const numSelected = parseInt(document.getElementById('numGames').value);
+    const selectedGames = selectRandomGames(games, numSelected);
+    const selectedGamesList = document.getElementById('selectedGames');
+    selectedGamesList.innerHTML = ''; // clear previous selected games
+    
+    for (let i = 0; i < selectedGames.length; i++) {
+      const game = selectedGames[i];
+      const gameElement = document.createElement('li');
+      gameElement.innerText = `${game.awayTeam} @ ${game.homeTeam}`;
+      selectedGamesList.appendChild(gameElement);
+    }
+  });
+  
+ // Function to select random games from the games array
+function selectRandomGames(games, numSelected) {
+    const selectedGames = [];
+    for (let i = 0; i < numSelected; i++) {
+      const randomIndex = Math.floor(Math.random() * games.length);
+      selectedGames.push(games[randomIndex]);
+      games.splice(randomIndex, 1);
+    }
+    return selectedGames;
+  }
+  
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent form submission
+    const numSelected = parseInt(document.getElementById('numGames').value);
+    const selectedGames = selectRandomGames(games, numSelected);
+  
+    // Display selected games in the selectedGames column
+    const selectedGamesList = document.getElementById('selectedGamesList');
+    selectedGamesList.innerHTML = '';
+    selectedGames.forEach(function(game) {
+      const listItem = document.createElement('li');
+      listItem.classList.add('list-group-item');
+      listItem.textContent = `${game.awayTeam} @ ${game.homeTeam}`;
+      selectedGamesList.appendChild(listItem);
+    });
+  
+    // Display odds for the first game in the odds table
+    const oddsTableBody = document.querySelector('#oddsTable tbody');
+    oddsTableBody.innerHTML = '';
+    selectedGames[0].odds.forEach(function(odd) {
+      const row = document.createElement('tr');
+      const sportsbookCell = document.createElement('td');
+      sportsbookCell.textContent = odd.sportsbook;
+      const moneylineCell = document.createElement('td');
+      moneylineCell.textContent = odd.moneyline;
+      const pointSpreadCell = document.createElement('td');
+      pointSpreadCell.textContent = odd.pointSpread;
+      const totalCell = document.createElement('td');
+      totalCell.textContent = odd.total;
+      row.appendChild(sportsbookCell);
+      row.appendChild(moneylineCell);
+      row.appendChild(pointSpreadCell);
+      row.appendChild(totalCell);
+      oddsTableBody.appendChild(row);
+    });
+  });
+  
+
+
 
 // const BASE_URL = 'https://api.sportsdata.io/v3/mlb/odds/json';
 

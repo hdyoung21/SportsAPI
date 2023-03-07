@@ -24,6 +24,82 @@
             <label for="datePicker">Select a Date:</label>
             <input type="date" class="form-control" id="datePicker" name="datePicker" value="" />
           </div>
+          <div class="form-group">
+            <label for="numGames">Select Number of Games:</label>
+            <select class="form-control" id="numGames" name="numGames">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary mb-2" id="submitBtn">
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-center">Selected Games</h2>
+        <ul class="list-group" id="selectedGames"></ul>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <ul class="list-group" id="gameList"></ul>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped" id="oddsTable">
+          <thead>
+            <tr>
+              <th scope="col">Sportsbook</th>
+              <th scope="col">Money Line</th>
+              <th scope="col">Point Spread</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <script src="./assets/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>MLB Odds</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1 class="text-center p-5 text-black" id="test">MLB Odds</h1>
+    </nav>
+  </header>
+  <main class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="datePicker">Select a Date:</label>
+            <input type="date" class="form-control" id="datePicker" name="datePicker" value="" />
+          </div>
           <button type="submit" class="btn btn-primary mb-2" id="submitBtn">
             Submit
           </button>
@@ -52,4 +128,4 @@
     </div>
   </main>
   <script src="./assets/script.js"></script>
-</body>
+</body> -->
