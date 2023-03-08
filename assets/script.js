@@ -48,8 +48,8 @@ function displayGames(games) {
         if (game.PregameOdds && game.PregameOdds.length > 0) {
             // Loop through the pregame odds and create HTML for each one
             game.PregameOdds.forEach(odds => {
-                pregameOddsHtml += [`<div>${odds.Sportsbook}: ${odds.HomePointSpread}</div>
-                <div>${odds.Sportsbook}: ${odds.AwayPointSpread}</div>`]
+                pregameOddsHtml += `<div>${odds.Sportsbook}: ${odds.HomePointSpread}</div>`
+                
             });
         }
 
@@ -93,7 +93,10 @@ function displayOdds(game) {
 
     let oddsHtml = '';
 
-    oddsHtml += `<tr><td>America's Bookie</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>Bet365</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>Caesars</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>FanDuel</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.UnderPayout}) (${odds.OverPayout})</td></tr>`
+    oddsHtml += `<tr><td>America's Bookie</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr>
+    <tr><td>Bet365</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr>
+    <tr><td>Caesars</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr>
+    <tr><td>FanDuel</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.UnderPayout}) (${odds.OverPayout})</td></tr>`
 
     oddsTableBody.innerHTML = oddsHtml;
 }
