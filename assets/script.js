@@ -93,7 +93,7 @@ function displayOdds(game) {
 
     let oddsHtml = '';
 
-    oddsHtml += `<tr><td>America's Bookie</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`
+    oddsHtml += `<tr><td>America's Bookie</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>Bet365</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>Caesars</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>FanDuel</td><td>${odds.AwayMoneyLine}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.UnderPayout}) (${odds.OverPayout})</td></tr>`
 
     oddsTableBody.innerHTML = oddsHtml;
 }
@@ -269,7 +269,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
     
 //         let oddsHtml = '';
     
-//         oddsHtml += `<tr><td>America's Bookie</td><td>${odds.MoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Bet365</td><td>${odds.Bet365MoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>Caesars</td><td>${odds.CaesarsMoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.UnderLine})</td></tr><tr><td>FanDuel</td><td>${odds.FanDuelMoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.TotalNumber} (${odds.Under}) (${odds.UnderLine})</td></tr>`
+//         oddsHtml += `<tr><td>America's Bookie</td><td>${odds.MoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>Bet365</td><td>${odds.Bet365MoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>Caesars</td><td>${odds.CaesarsMoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.OverPayout})</td></tr><tr><td>FanDuel</td><td>${odds.FanDuelMoneyLineAway}</td><td>${odds.AwayPointSpread} (${odds.AwayPointSpreadPayout})</td><td>${odds.OverUnder} (${odds.Under}) (${odds.OverPayout})</td></tr>`
     
 //         oddsTableBody.innerHTML = oddsHtml;
 //     }
